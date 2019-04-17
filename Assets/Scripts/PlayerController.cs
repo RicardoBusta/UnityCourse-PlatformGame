@@ -1,111 +1,140 @@
-﻿using UnityEngine;
-
-public class PlayerController : MonoBehaviour
+﻿namespace Game
 {
-    private static readonly int Moving = Animator.StringToHash("Moving");
-    private static readonly int Jumping = Animator.StringToHash("Jumping");
-    private static readonly int VerticalVelocity = Animator.StringToHash("VerticalVelocity");
+    using UnityEngine;
 
-    private static readonly float upThreshold = 0.5f;
+// [ ] Pegar todos os itens
+// [ ] Morrer quando tocar inimigo
+// [ ] Inimigo fica vagando o cenário
 
-    private Rigidbody2D rigidBody;
-
-    private SpriteRenderer spriteRenderer;
-
-    private Animator animator;
-
-    public float acceleration = 5;
-    public float maxVelocity = 5;
-
-    public float jumpSpeed = 5;
-
-    private Vector2 playerInput;
-
-    public bool grounded;
-    public bool canJump;
-    public float timeSinceJump = 0;
-
-    void Awake()
+    public class PlayerController : MonoBehaviour
     {
-        rigidBody = GetComponent<Rigidbody2D>();
+        private static readonly int Moving = Animator.StringToHash("Moving");
+        private static readonly int Jumping = Animator.StringToHash("Jumping");
+        private static readonly int VerticalVelocity = Animator.StringToHash("VerticalVelocity");
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        private static readonly float upThreshold = 0.5f;
 
-        animator = GetComponent<Animator>();
-    }
+        private Rigidbody2D rigidBody;
 
-    void Update()
-    {
-        playerInput.x = Input.GetAxisRaw("Horizontal");
-        playerInput.y = Input.GetAxisRaw("Vertical");
-    }
+        private SpriteRenderer spriteRenderer;
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        MovementLogic();
-    }
+        private Animator animator;
 
-    private void MovementLogic()
-    {
-        var hForce = playerInput.x * acceleration;
+        public float acceleration = 5;
+        public float maxVelocity = 5;
 
-        if (!grounded)
+        public float jumpSpeed = 5;
+
+        private Vector2 playerInput;
+
+        public bool grounded;
+        public bool canJump;
+        public float timeSinceJump = 0;
+
+        void Awake()
         {
-            timeSinceJump += Time.fixedDeltaTime;
+            rigidBody = GetComponent<Rigidbody2D>();
+
+            spriteRenderer = GetComponent<SpriteRenderer>();
+
+            animator = GetComponent<Animator>();
         }
 
-        if (Mathf.Approximately(hForce, 0))
+        void Update()
         {
-            hForce = -rigidBody.velocity.x;
+            playerInput.x = Input.GetAxisRaw("Horizontal");
+            playerInput.y = Input.GetAxisRaw("Vertical");
         }
 
-        rigidBody.AddForce(new Vector2(hForce, 0), ForceMode2D.Impulse);
-
-        if (!Mathf.Approximately(playerInput.x, 0))
+        // Update is called once per frame
+        void FixedUpdate()
         {
-            spriteRenderer.flipX = playerInput.x < 0;
+            MovementLogic();
         }
 
-        var vel = rigidBody.velocity;
-
-        if (canJump && playerInput.y > 0)
+        private void MovementLogic()
         {
-            vel.y = jumpSpeed;
-            grounded = false;
-            canJump = false;
-        }
+            var hForce = playerInput.x * acceleration;
 
-        vel.x = Mathf.Clamp(vel.x, -maxVelocity, maxVelocity);
-        rigidBody.velocity = vel;
-
-        animator.SetBool(Moving, Mathf.Abs(vel.x) > 0.1f);
-        animator.SetBool(Jumping, !grounded);
-        animator.SetFloat(VerticalVelocity, vel.y);
-    }
-
-    private void OnCollisionStay2D(Collision2D other)
-    {
-        if (timeSinceJump > 0.2f && !grounded && other.gameObject.CompareTag("Ground"))
-        {
-            foreach (var contact in other.contacts)
+            if (!grounded)
             {
-                if (Vector2.Dot(contact.normal, Vector2.up) > upThreshold)
+                timeSinceJump += Time.fixedDeltaTime;
+            }
+
+            if (Mathf.Approximately(hForce, 0))
+            {
+                hForce = -rigidBody.velocity.x;
+            }
+
+            rigidBody.AddForce(new Vector2(hForce, 0), ForceMode2D.Impulse);
+
+            if (!Mathf.Approximately(playerInput.x, 0))
+            {
+                spriteRenderer.flipX = playerInput.x < 0;
+            }
+
+            var vel = rigidBody.velocity;
+
+            if (canJump && playerInput.y > 0)
+            {
+                vel.y = jumpSpeed;
+                grounded = false;
+                canJump = false;
+            }
+
+            vel.x = Mathf.Clamp(vel.x, -maxVelocity, maxVelocity);
+            rigidBody.velocity = vel;
+
+            animator.SetBool(Moving, Mathf.Abs(vel.x) > 0.1f);
+            animator.SetBool(Jumping, !grounded);
+            animator.SetFloat(VerticalVelocity, vel.y);
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (CollideWithItem(other))
+            {
+               var item = other.gameObject.GetComponent<CollectibleItem>();
+               if (item != null)
+               {
+                   item.GetItem();
+               }
+            }
+        }
+
+        private void OnCollisionStay2D(Collision2D other)
+        {
+            if (timeSinceJump > 0.2f && !grounded && CollideWithGround(other))
+            {
+                foreach (var contact in other.contacts)
                 {
-                    grounded = true;
-                    canJump = true;
-                    timeSinceJump = 0;
-                    break;
+                    if (Vector2.Dot(contact.normal, Vector2.up) > upThreshold)
+                    {
+                        grounded = true;
+                        canJump = true;
+                        timeSinceJump = 0;
+                        break;
+                    }
                 }
             }
         }
-    }
 
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
+        private void OnCollisionExit2D(Collision2D other)
         {
-            grounded = false;
+            if (CollideWithGround(other))
+            {
+                grounded = false;
+            }
+        }
+
+        private static bool CollideWithGround(Collision2D other)
+        {
+            return other.gameObject.CompareTag("Ground");
+        }
+
+        private static bool CollideWithItem(Collision2D other)
+        {
+            return other.gameObject.CompareTag("Item");
         }
     }
 }
