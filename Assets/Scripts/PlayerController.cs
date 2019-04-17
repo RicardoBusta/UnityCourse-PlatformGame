@@ -90,11 +90,11 @@
             animator.SetFloat(VerticalVelocity, vel.y);
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-            if (CollideWithItem(other))
+        private void OnTriggerEnter2D(Collider2D other)
+        { 
+            if (other.CompareTag("Item"))
             {
-               var item = other.gameObject.GetComponent<CollectibleItem>();
+               var item = other.GetComponent<CollectibleItem>();
                if (item != null)
                {
                    item.GetItem();
@@ -104,7 +104,7 @@
 
         private void OnCollisionStay2D(Collision2D other)
         {
-            if (timeSinceJump > 0.2f && !grounded && CollideWithGround(other))
+            if (timeSinceJump > 0.2f && !grounded && other.gameObject.CompareTag("Ground"))
             {
                 foreach (var contact in other.contacts)
                 {
@@ -121,20 +121,10 @@
 
         private void OnCollisionExit2D(Collision2D other)
         {
-            if (CollideWithGround(other))
+            if (other.gameObject.CompareTag("Ground"))
             {
                 grounded = false;
             }
-        }
-
-        private static bool CollideWithGround(Collision2D other)
-        {
-            return other.gameObject.CompareTag("Ground");
-        }
-
-        private static bool CollideWithItem(Collision2D other)
-        {
-            return other.gameObject.CompareTag("Item");
         }
     }
 }
