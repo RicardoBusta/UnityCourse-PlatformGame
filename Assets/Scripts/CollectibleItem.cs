@@ -6,8 +6,16 @@ namespace Game
 
     public class CollectibleItem : MonoBehaviour
     {
+        private static readonly int Collect = Animator.StringToHash("Collect");
+
         private GameController controllerRef;
-        
+        private Animator animator;
+
+        private void Awake()
+        {
+            animator = GetComponent<Animator>();
+        }
+
         private void Start()
         {
             controllerRef = GameController.Instance;
@@ -34,6 +42,11 @@ namespace Game
             }
 
             controllerRef.GetItem(ItemType);
+            animator.SetTrigger(Collect);
+        }
+
+        public void Destroy()
+        {
             gameObject.SetActive(false);
         }
     }
