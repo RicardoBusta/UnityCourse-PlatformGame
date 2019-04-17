@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     private static readonly int Jumping = Animator.StringToHash("Jumping");
     private static readonly int VerticalVelocity = Animator.StringToHash("VerticalVelocity");
 
+    private static readonly float upThreshold = 0.5f;
 
     private Rigidbody2D rigidBody;
 
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 playerInput;
 
     public bool grounded;
+    public bool canJump;
     public float timeSinceJump = 0;
 
     void Awake()
@@ -67,15 +69,16 @@ public class PlayerController : MonoBehaviour
 
         var vel = rigidBody.velocity;
 
-        if (grounded && playerInput.y > 0)
+        if (canJump && playerInput.y > 0)
         {
             vel.y = jumpSpeed;
             grounded = false;
+            canJump = false;
         }
 
         vel.x = Mathf.Clamp(vel.x, -maxVelocity, maxVelocity);
         rigidBody.velocity = vel;
-        
+
         animator.SetBool(Moving, Mathf.Abs(vel.x) > 0.1f);
         animator.SetBool(Jumping, !grounded);
         animator.SetFloat(VerticalVelocity, vel.y);
@@ -85,8 +88,24 @@ public class PlayerController : MonoBehaviour
     {
         if (timeSinceJump > 0.2f && !grounded && other.gameObject.CompareTag("Ground"))
         {
-            grounded = true;
-            timeSinceJump = 0;
+            foreach (var contact in other.contacts)
+            {
+                if (Vector2.Dot(contact.normal, Vector2.up) > upThreshold)
+                {
+                    grounded = true;
+                    canJump = true;
+                    timeSinceJump = 0;
+                    break;
+                }
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            grounded = false;
         }
     }
 }
