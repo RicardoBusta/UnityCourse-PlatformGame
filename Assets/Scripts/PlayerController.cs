@@ -1,6 +1,7 @@
 ﻿namespace Game
 {
     using UnityEngine;
+    using UnityEngine.SceneManagement;
 
 // [ ] Pegar todos os itens
 // [ ] Morrer quando tocar inimigo
@@ -91,20 +92,41 @@
         }
 
         private void OnTriggerEnter2D(Collider2D other)
-        { 
+        {
             if (other.CompareTag("Item"))
             {
-               var item = other.GetComponent<CollectibleItem>();
-               if (item != null)
-               {
-                   item.GetItem();
-               }
+                var item = other.GetComponent<CollectibleItem>();
+                if (item != null)
+                {
+                    item.GetItem();
+                }
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                var enemy = other.gameObject.GetComponent<EnemyController>();
+                if (enemy != null)
+                {
+                    var topHit = enemy.Hit(other.contacts);
+
+                    if (topHit)
+                    {
+                        rigidBody.AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
+                    }
+                    else
+                    {
+                        Die();
+                    }
+                }
             }
         }
 
         private void OnCollisionStay2D(Collision2D other)
         {
-            if (timeSinceJump > 0.2f && !grounded && other.gameObject.CompareTag("Ground"))
+            if (timeSinceJump > 0.2f && rigidBody.velocity.y <= 0 && !grounded && other.gameObject.CompareTag("Ground"))
             {
                 foreach (var contact in other.contacts)
                 {
@@ -125,6 +147,11 @@
             {
                 grounded = false;
             }
+        }
+
+        private void Die()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
