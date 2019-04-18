@@ -2,7 +2,6 @@ namespace Game
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.Design;
     using UnityEngine;
 
     public class GameController : MonoBehaviour
@@ -12,6 +11,8 @@ namespace Game
         private static Dictionary<CollectibleItem.CollectibleTypes, int> totalItemCount;
         private static Dictionary<CollectibleItem.CollectibleTypes, int> itemGetCount;
 
+        private bool paused;
+        
         public static GameController Instance
         {
             get
@@ -54,6 +55,25 @@ namespace Game
             foreach (var item in items)
             {
                 totalItemCount[item.ItemType]++;
+            }
+        }
+
+        public void Update()
+        {
+            var pause = Input.GetButtonDown("Cancel");
+            if (pause)
+            {
+                paused = !paused;
+                
+                if (paused)
+                {
+                    Time.timeScale = 1;
+                }
+                else
+                {
+                    Time.timeScale = 0;
+                }
+                
             }
         }
     }

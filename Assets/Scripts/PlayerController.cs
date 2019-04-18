@@ -3,9 +3,13 @@
     using UnityEngine;
     using UnityEngine.SceneManagement;
 
-// [ ] Pegar todos os itens
-// [ ] Morrer quando tocar inimigo
-// [ ] Inimigo fica vagando o cenário
+// [ ] Barra de vida
+// [ ] Numero de itens coletados
+// [ ] Numero de itens totais
+// [ ] Elemento de imagem representando vitória / derrota
+// [ ] Botão para reiniciar o jogo
+// [ ] Menu inicial para o jogo
+// [ ] Menu de pausa
 
     public class PlayerController : MonoBehaviour
     {
