@@ -42,7 +42,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: f0bb8c76fb1af9b499a74f14b1f8e3e9, type: 3}
-    totalSpriteSurfaceArea: 250094
+    totalSpriteSurfaceArea: 264922
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -76,7 +76,23 @@ SpriteAtlas:
   - {fileID: 21300006, guid: 21eb0912751cea349ba848f3db5e2452, type: 3}
   - {fileID: 21300000, guid: 21eb0912751cea349ba848f3db5e2452, type: 3}
   - {fileID: 21300002, guid: 21eb0912751cea349ba848f3db5e2452, type: 3}
+  - {fileID: 21300000, guid: 6dde0f32354357143b6ce0b67f1332a1, type: 3}
+  - {fileID: 21300002, guid: 6dde0f32354357143b6ce0b67f1332a1, type: 3}
+  - {fileID: 21300004, guid: 6dde0f32354357143b6ce0b67f1332a1, type: 3}
+  - {fileID: 21300006, guid: 6dde0f32354357143b6ce0b67f1332a1, type: 3}
+  - {fileID: 21300008, guid: 6dde0f32354357143b6ce0b67f1332a1, type: 3}
+  - {fileID: 21300008, guid: ae078a043bd341e4484d4fd996d492a5, type: 3}
+  - {fileID: 21300002, guid: ae078a043bd341e4484d4fd996d492a5, type: 3}
+  - {fileID: 21300000, guid: ae078a043bd341e4484d4fd996d492a5, type: 3}
+  - {fileID: 21300006, guid: ae078a043bd341e4484d4fd996d492a5, type: 3}
+  - {fileID: 21300004, guid: ae078a043bd341e4484d4fd996d492a5, type: 3}
   - {fileID: 21300000, guid: de41d366c687a46beb6a9acaa88c12db, type: 3}
+  - {fileID: 21300000, guid: f2e86be7d0da17d4c9297665f36aed59, type: 3}
+  - {fileID: 21300002, guid: f2e86be7d0da17d4c9297665f36aed59, type: 3}
+  - {fileID: 21300004, guid: f2e86be7d0da17d4c9297665f36aed59, type: 3}
+  - {fileID: 21300006, guid: f2e86be7d0da17d4c9297665f36aed59, type: 3}
+  - {fileID: 21300008, guid: f2e86be7d0da17d4c9297665f36aed59, type: 3}
+  - {fileID: 21300010, guid: f2e86be7d0da17d4c9297665f36aed59, type: 3}
   - {fileID: 21300018, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - {fileID: 21300016, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - {fileID: 21300010, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
@@ -224,6 +240,11 @@ SpriteAtlas:
   - {fileID: 21300022, guid: acabc53c7a944ed4d880817d11065153, type: 3}
   - {fileID: 21300024, guid: acabc53c7a944ed4d880817d11065153, type: 3}
   - {fileID: 21300026, guid: acabc53c7a944ed4d880817d11065153, type: 3}
+  - {fileID: 21300002, guid: d98eee4dfabf43e48b9c3f322dcee807, type: 3}
+  - {fileID: 21300000, guid: d98eee4dfabf43e48b9c3f322dcee807, type: 3}
+  - {fileID: 21300006, guid: d98eee4dfabf43e48b9c3f322dcee807, type: 3}
+  - {fileID: 21300004, guid: d98eee4dfabf43e48b9c3f322dcee807, type: 3}
+  - {fileID: 21300008, guid: d98eee4dfabf43e48b9c3f322dcee807, type: 3}
   m_PackedSpriteNamesToIndex:
   - Death_4
   - Death_5
@@ -255,7 +276,23 @@ SpriteAtlas:
   - ItemFeedback_3
   - ItemFeedback_0
   - ItemFeedback_1
+  - Frog_0
+  - Frog_1
+  - Frog_2
+  - Frog_3
+  - Frog_4
+  - Cherry_4
+  - Cherry_1
+  - Cherry_0
+  - Cherry_3
+  - Cherry_2
   - middle
+  - Opossum_0
+  - Opossum_1
+  - Opossum_2
+  - Opossum_3
+  - Opossum_4
+  - Opossum_5
   - tileset-sliced_9
   - tileset-sliced_8
   - tileset-sliced_5
@@ -384,7 +421,7 @@ SpriteAtlas:
   - tileset-sliced_127
   - tileset-sliced_124
   - tileset-sliced_125
-  - back
+  - Sky
   - Player_9
   - Player_8
   - Player_5
@@ -403,5 +440,10 @@ SpriteAtlas:
   - Player_11
   - Player_12
   - Player_13
+  - Gem_1
+  - Gem_0
+  - Gem_3
+  - Gem_2
+  - Gem_4
   m_Tag: Atlas
   m_IsVariant: 0

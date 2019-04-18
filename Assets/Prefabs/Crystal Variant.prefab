@@ -71,14 +71,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: bd59bf2e866ed4529ae645637eb9c11d,
+      objectReference: {fileID: 21300004, guid: d98eee4dfabf43e48b9c3f322dcee807,
         type: 3}
+    - target: {fileID: 1125940294339670050, guid: c97190f5770964568a129bb97b576db6,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125940294339670050, guid: c97190f5770964568a129bb97b576db6,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.8125
+      objectReference: {fileID: 0}
     - target: {fileID: 1125940294339670053, guid: c97190f5770964568a129bb97b576db6,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 0e796d0cf67684f2f9c2da1e1d02c050,
         type: 2}
+    - target: {fileID: 495102686, guid: c97190f5770964568a129bb97b576db6, type: 3}
+      propertyPath: m_Radius
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 495102686, guid: c97190f5770964568a129bb97b576db6, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495102686, guid: c97190f5770964568a129bb97b576db6, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 110993875168726636, guid: c97190f5770964568a129bb97b576db6,
         type: 3}
       propertyPath: ItemType
