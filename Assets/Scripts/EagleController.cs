@@ -1,18 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class EagleController : MonoBehaviour
+﻿namespace Game
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    using DG.Tweening;
 
-    // Update is called once per frame
-    void Update()
+    public class EagleController : EnemyController
     {
-        
+        public float MovementAmount;
+        public float MovementTime;
+        public float WaitTime;
+
+        private void Start()
+        {
+            MoveUp();
+        }
+
+        private void MoveUp()
+        {
+            tween = DOVirtual.DelayedCall(WaitTime, () =>
+            {
+                var y = transform.position.y + MovementAmount;
+                tween = rigidBody.DOMoveY(y, MovementTime);
+                tween.onComplete += MoveDown;
+            });
+        }
+
+        private void MoveDown()
+        {
+            tween = DOVirtual.DelayedCall(WaitTime, () =>
+            {
+                var y = transform.position.y - MovementAmount;
+                tween = rigidBody.DOMoveY(y, MovementTime);
+                tween.onComplete += MoveUp;
+            });
+        }
     }
 }

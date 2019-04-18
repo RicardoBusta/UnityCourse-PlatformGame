@@ -1,21 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class EnemyController : MonoBehaviour
+﻿namespace Game
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+    using DG.Tweening;
+    using UnityEngine;
 
-    // Update is called once per frame
-    void Update()
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class EnemyController : MonoBehaviour
     {
-    }
+        protected Tween tween;
+        protected Rigidbody2D rigidBody;
 
-    public void Die()
-    {
-        gameObject.SetActive(false);
+        private void Awake()
+        {
+            rigidBody = GetComponent<Rigidbody2D>();
+        }
+        
+        public void Die()
+        {
+            tween?.Kill();
+            gameObject.SetActive(false);
+        }
     }
 }

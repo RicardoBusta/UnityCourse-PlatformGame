@@ -1,18 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class OpossumController : MonoBehaviour
+﻿namespace Game
 {
-    // Start is called before the first frame update
-    void Start()
+    public class OpossumController : EnemyController
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
+
