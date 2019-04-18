@@ -151,5 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa0ce0d003264e95ad8649dd0ca7b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  acceleration: 5
+  maxVelocity: 5
   jumpSpeed: 15
+  grounded: 0
+  canJump: 0
+  timeSinceJump: 0
