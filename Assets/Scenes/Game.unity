@@ -4957,7 +4957,7 @@ TilemapRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 2.9375002, y: 6.25, z: 0}
+  m_ChunkCullingBounds: {x: 2.9375002, y: 5.75, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -6300,7 +6300,7 @@ MonoBehaviour:
   m_RefResolutionX: 320
   m_RefResolutionY: 180
   m_UpscaleRT: 0
-  m_PixelSnapping: 0
+  m_PixelSnapping: 1
   m_CropFrameX: 1
   m_CropFrameY: 1
   m_StretchFill: 1
@@ -6838,6 +6838,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 72de0c64f2c6a498096698322c976a67,
         type: 3}
+    - target: {fileID: 5427364851089066027, guid: 8f20d7025d276493e9f41ea24dc73770,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f20d7025d276493e9f41ea24dc73770, type: 3}
 --- !u!1001 &8736204639964660508

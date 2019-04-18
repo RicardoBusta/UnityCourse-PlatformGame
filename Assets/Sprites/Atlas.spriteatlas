@@ -46,7 +46,12 @@ SpriteAtlas:
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300008, guid: 954535c0b0cffed4ca1c0531aa24e008, type: 3}
+  - {fileID: 21300010, guid: 954535c0b0cffed4ca1c0531aa24e008, type: 3}
+  - {fileID: 21300004, guid: 954535c0b0cffed4ca1c0531aa24e008, type: 3}
+  - {fileID: 21300006, guid: 954535c0b0cffed4ca1c0531aa24e008, type: 3}
   - {fileID: 21300000, guid: 954535c0b0cffed4ca1c0531aa24e008, type: 3}
+  - {fileID: 21300002, guid: 954535c0b0cffed4ca1c0531aa24e008, type: 3}
   - {fileID: 21300022, guid: 07110dc0b8fd61c4faed89546d062e26, type: 3}
   - {fileID: 21300016, guid: 07110dc0b8fd61c4faed89546d062e26, type: 3}
   - {fileID: 21300020, guid: 07110dc0b8fd61c4faed89546d062e26, type: 3}
@@ -67,7 +72,10 @@ SpriteAtlas:
   - {fileID: 21300014, guid: 07110dc0b8fd61c4faed89546d062e26, type: 3}
   - {fileID: 21300008, guid: 07110dc0b8fd61c4faed89546d062e26, type: 3}
   - {fileID: 21300010, guid: 07110dc0b8fd61c4faed89546d062e26, type: 3}
+  - {fileID: 21300004, guid: 21eb0912751cea349ba848f3db5e2452, type: 3}
+  - {fileID: 21300006, guid: 21eb0912751cea349ba848f3db5e2452, type: 3}
   - {fileID: 21300000, guid: 21eb0912751cea349ba848f3db5e2452, type: 3}
+  - {fileID: 21300002, guid: 21eb0912751cea349ba848f3db5e2452, type: 3}
   - {fileID: 21300000, guid: de41d366c687a46beb6a9acaa88c12db, type: 3}
   - {fileID: 21300018, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - {fileID: 21300016, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
@@ -217,7 +225,12 @@ SpriteAtlas:
   - {fileID: 21300024, guid: acabc53c7a944ed4d880817d11065153, type: 3}
   - {fileID: 21300026, guid: acabc53c7a944ed4d880817d11065153, type: 3}
   m_PackedSpriteNamesToIndex:
-  - Death
+  - Death_4
+  - Death_5
+  - Death_2
+  - Death_3
+  - Death_0
+  - Death_1
   - Props_11
   - Props_8
   - Props_10
@@ -238,7 +251,10 @@ SpriteAtlas:
   - Props_7
   - Props_4
   - Props_5
-  - ItemFeedback
+  - ItemFeedback_2
+  - ItemFeedback_3
+  - ItemFeedback_0
+  - ItemFeedback_1
   - middle
   - tileset-sliced_9
   - tileset-sliced_8
