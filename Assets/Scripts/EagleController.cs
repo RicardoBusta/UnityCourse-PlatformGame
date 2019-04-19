@@ -4,8 +4,12 @@ using UnityEngine;
 namespace Game {
     using DG.Tweening;
 
-    public class EagleController : EnemyController {
+    public class EagleController : MonoBehaviour {
         private static readonly int Moving = Animator.StringToHash("Moving");
+
+        [BoxGroup("References")]
+        [Required]
+        public EnemyController EnemyController;
 
         [BoxGroup("Assets")]
         [Required]
@@ -20,36 +24,36 @@ namespace Game {
         [BoxGroup("Parameters")]
         public float WaitTime;
 
+        private Tween tween;
+
         private void Start() {
             MoveUp();
+
+            EnemyController.DieEvent += () => tween?.Kill();
         }
 
         private void MoveUp() {
-            Animator.SetBool(Moving, false);
+            EnemyController.Animator.SetBool(Moving, false);
             tween = DOVirtual.DelayedCall(WaitTime, () => {
-                Animator.SetBool(Moving, true);
+                EnemyController.Animator.SetBool(Moving, true);
                 var y = transform.position.y + MovementAmount;
-                tween = RigidBody.DOMoveY(y, MovementTime);
+                tween = EnemyController.RigidBody.DOMoveY(y, MovementTime);
                 tween.onComplete += MoveDown;
             });
         }
 
         private void MoveDown() {
-            Animator.SetBool(Moving, false);
+            EnemyController.Animator.SetBool(Moving, false);
             tween = DOVirtual.DelayedCall(WaitTime, () => {
-                Animator.SetBool(Moving, true);
+                EnemyController.Animator.SetBool(Moving, true);
                 var y = transform.position.y - MovementAmount;
-                tween = RigidBody.DOMoveY(y, MovementTime);
+                tween = EnemyController.RigidBody.DOMoveY(y, MovementTime);
                 tween.onComplete += MoveUp;
             });
         }
 
-        protected override void OnDie() { }
-
         private void PlayFlapSound() {
-            AudioSource.clip = FlapSound;
-            AudioSource.volume = 0.2f;
-            AudioSource.Play();
+            EnemyController.PlaySound(FlapSound, 0.2f);
         }
     }
 }

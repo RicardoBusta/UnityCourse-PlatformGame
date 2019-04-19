@@ -1,10 +1,9 @@
-﻿namespace Game
+﻿using UnityEngine;
+
+namespace Game
 {
-    public class OpossumController : EnemyController
+    public class OpossumController : MonoBehaviour
     {
-        protected override void OnDie()
-        {
-        }
     }
 }
 

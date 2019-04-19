@@ -1,4 +1,5 @@
-﻿using NaughtyAttributes;
+﻿using System;
+using NaughtyAttributes;
 
 namespace Game {
     using DG.Tweening;
@@ -6,10 +7,8 @@ namespace Game {
 
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(Collider2D))]
     [RequireComponent(typeof(AudioSource))]
-    public abstract class EnemyController : MonoBehaviour {
+    public class EnemyController : MonoBehaviour {
         private static readonly int Die1 = Animator.StringToHash("Die");
-
-        protected Tween tween;
 
         [BoxGroup("ScriptReferences")]
         [Required]
@@ -26,12 +25,12 @@ namespace Game {
         [BoxGroup("ScriptReferences")]
         [Required]
         public AudioSource AudioSource;
-        
+
         [BoxGroup("Assets")]
         [Required]
         public AudioClip DeathSound;
 
-        protected abstract void OnDie();
+        public event Action DieEvent;
 
         public void Die() {
             gameObject.SetActive(false);
@@ -48,13 +47,18 @@ namespace Game {
 
             if (topHit) {
                 Collider.enabled = false;
-                tween?.Kill();
-                OnDie();
+                DieEvent?.Invoke();
                 PlayDeathSound();
                 Animator.SetTrigger(Die1);
             }
 
             return topHit;
+        }
+
+        public void PlaySound(AudioClip clip, float volume) {
+            AudioSource.clip = clip;
+            AudioSource.volume = volume;
+            AudioSource.Play();
         }
 
         private void PlayDeathSound() {

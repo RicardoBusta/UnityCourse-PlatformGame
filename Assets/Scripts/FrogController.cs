@@ -1,15 +1,8 @@
-﻿namespace Game
-{
-    public class FrogController : EnemyController
-    {
-        private void Start()
-        {
-            
-        }
+﻿using UnityEngine;
 
-        protected override void OnDie()
-        {
-            
-        }
+namespace Game
+{
+    public class FrogController : MonoBehaviour
+    {
     }
 }
