@@ -1,53 +1,66 @@
-﻿namespace Game
-{
+﻿using NaughtyAttributes;
+
+namespace Game {
     using DG.Tweening;
     using UnityEngine;
 
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(Collider2D))]
-    public abstract class EnemyController : MonoBehaviour
-    {
+    [RequireComponent(typeof(AudioSource))]
+    public abstract class EnemyController : MonoBehaviour {
         private static readonly int Die1 = Animator.StringToHash("Die");
-        
+
         protected Tween tween;
-        protected Rigidbody2D rigidBody;
-        protected Animator animator;
-        protected Collider2D collider;
+
+        [BoxGroup("ScriptReferences")]
+        [Required]
+        public Rigidbody2D RigidBody;
+
+        [BoxGroup("ScriptReferences")]
+        [Required]
+        public Animator Animator;
+
+        [BoxGroup("ScriptReferences")]
+        [Required]
+        public Collider2D Collider;
+
+        [BoxGroup("ScriptReferences")]
+        [Required]
+        public AudioSource AudioSource;
         
-        private void Awake()
-        {
-            rigidBody = GetComponent<Rigidbody2D>();
-            animator = GetComponent<Animator>();
-            collider = GetComponent<Collider2D>();
-        }
+        [BoxGroup("Assets")]
+        [Required]
+        public AudioClip DeathSound;
 
         protected abstract void OnDie();
-        
-        public void Die()
-        {   
+
+        public void Die() {
             gameObject.SetActive(false);
         }
 
-        public bool Hit(ContactPoint2D[] contactPoints)
-        {
+        public bool Hit(ContactPoint2D[] contactPoints) {
             var topHit = true;
-            foreach (var contact in contactPoints)
-            {
-                if (Vector2.Dot(contact.normal, Vector2.up) < 0.7f)
-                {
+            foreach (var contact in contactPoints) {
+                if (Vector2.Dot(contact.normal, Vector2.up) < 0.7f) {
                     topHit = false;
                     break;
                 }
             }
 
-            if (topHit)
-            {
-                collider.enabled = false;
+            if (topHit) {
+                Collider.enabled = false;
                 tween?.Kill();
                 OnDie();
-                animator.SetTrigger(Die1);
+                PlayDeathSound();
+                Animator.SetTrigger(Die1);
             }
 
             return topHit;
+        }
+
+        private void PlayDeathSound() {
+            AudioSource.clip = DeathSound;
+            AudioSource.volume = 0.7f;
+            AudioSource.Play();
         }
     }
 }

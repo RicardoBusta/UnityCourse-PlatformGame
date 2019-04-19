@@ -67,6 +67,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1125940294339670053, guid: c97190f5770964568a129bb97b576db6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 0e796d0cf67684f2f9c2da1e1d02c050,
+        type: 2}
     - target: {fileID: 1125940294339670050, guid: c97190f5770964568a129bb97b576db6,
         type: 3}
       propertyPath: m_Sprite
@@ -83,12 +89,16 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.8125
       objectReference: {fileID: 0}
-    - target: {fileID: 1125940294339670053, guid: c97190f5770964568a129bb97b576db6,
+    - target: {fileID: 110993875168726636, guid: c97190f5770964568a129bb97b576db6,
         type: 3}
-      propertyPath: m_Controller
+      propertyPath: ItemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 110993875168726636, guid: c97190f5770964568a129bb97b576db6,
+        type: 3}
+      propertyPath: CollectSound
       value: 
-      objectReference: {fileID: 22100000, guid: 0e796d0cf67684f2f9c2da1e1d02c050,
-        type: 2}
+      objectReference: {fileID: 8300000, guid: 6ee5f4a7fa7f8b346ac87ef153bee52e, type: 3}
     - target: {fileID: 495102686, guid: c97190f5770964568a129bb97b576db6, type: 3}
       propertyPath: m_Radius
       value: 0.34
@@ -100,11 +110,6 @@ PrefabInstance:
     - target: {fileID: 495102686, guid: c97190f5770964568a129bb97b576db6, type: 3}
       propertyPath: m_Offset.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 110993875168726636, guid: c97190f5770964568a129bb97b576db6,
-        type: 3}
-      propertyPath: ItemType
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c97190f5770964568a129bb97b576db6, type: 3}

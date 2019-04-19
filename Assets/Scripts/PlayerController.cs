@@ -1,5 +1,6 @@
-﻿namespace Game
-{
+﻿using NaughtyAttributes;
+
+namespace Game {
     using UnityEngine;
     using UnityEngine.SceneManagement;
 
@@ -11,151 +12,155 @@
 // [ ] Menu inicial para o jogo
 // [ ] Menu de pausa
 
-    public class PlayerController : MonoBehaviour
-    {
+    public class PlayerController : MonoBehaviour {
         private static readonly int Moving = Animator.StringToHash("Moving");
         private static readonly int Jumping = Animator.StringToHash("Jumping");
         private static readonly int VerticalVelocity = Animator.StringToHash("VerticalVelocity");
 
         private static readonly float upThreshold = 0.5f;
 
-        private Rigidbody2D rigidBody;
+        [BoxGroup("ScriptReferences")]
+        [Required]
+        public Rigidbody2D RigidBody;
 
-        private SpriteRenderer spriteRenderer;
+        [BoxGroup("ScriptReferences")]
+        [Required]
+        public SpriteRenderer SpriteRenderer;
 
-        private Animator animator;
+        [BoxGroup("ScriptReferences")]
+        [Required]
+        public Animator Animator;
 
+        [BoxGroup("ScriptReferences")]
+        [Required]
+        public AudioSource AudioSource;
+
+        [BoxGroup("Assets")]
+        [Required]
+        public AudioClip JumpSound;
+        
+        [BoxGroup("Assets")]
+        [Required]
+        public AudioClip LandSound;
+
+        [BoxGroup("Parameters")]
         public float acceleration = 5;
+
+        [BoxGroup("Parameters")]
         public float maxVelocity = 5;
 
+        [BoxGroup("Parameters")]
         public float jumpSpeed = 5;
 
         private Vector2 playerInput;
+        private bool grounded;
+        private bool canJump;
+        private float timeSinceJump = 0;
 
-        public bool grounded;
-        public bool canJump;
-        public float timeSinceJump = 0;
-
-        void Awake()
-        {
-            rigidBody = GetComponent<Rigidbody2D>();
-
-            spriteRenderer = GetComponent<SpriteRenderer>();
-
-            animator = GetComponent<Animator>();
-        }
-
-        void Update()
-        {
+        void Update() {
             playerInput.x = Input.GetAxisRaw("Horizontal");
             playerInput.y = Input.GetAxisRaw("Vertical");
         }
 
         // Update is called once per frame
-        void FixedUpdate()
-        {
+        void FixedUpdate() {
             MovementLogic();
         }
 
-        private void MovementLogic()
-        {
+        private void MovementLogic() {
             var hForce = playerInput.x * acceleration;
 
-            if (!grounded)
-            {
+            if (!grounded) {
                 timeSinceJump += Time.fixedDeltaTime;
             }
 
-            if (Mathf.Approximately(hForce, 0))
-            {
-                hForce = -rigidBody.velocity.x;
+            if (Mathf.Approximately(hForce, 0)) {
+                hForce = -RigidBody.velocity.x;
             }
 
-            rigidBody.AddForce(new Vector2(hForce, 0), ForceMode2D.Impulse);
+            RigidBody.AddForce(new Vector2(hForce, 0), ForceMode2D.Impulse);
 
-            if (!Mathf.Approximately(playerInput.x, 0))
-            {
-                spriteRenderer.flipX = playerInput.x < 0;
+            if (!Mathf.Approximately(playerInput.x, 0)) {
+                SpriteRenderer.flipX = playerInput.x < 0;
             }
 
-            var vel = rigidBody.velocity;
+            var vel = RigidBody.velocity;
 
-            if (canJump && playerInput.y > 0)
-            {
+            if (canJump && playerInput.y > 0) {
                 vel.y = jumpSpeed;
                 grounded = false;
                 canJump = false;
+                PlayJumpSound();
             }
 
             vel.x = Mathf.Clamp(vel.x, -maxVelocity, maxVelocity);
-            rigidBody.velocity = vel;
+            RigidBody.velocity = vel;
 
-            animator.SetBool(Moving, Mathf.Abs(vel.x) > 0.1f);
-            animator.SetBool(Jumping, !grounded);
-            animator.SetFloat(VerticalVelocity, vel.y);
+            Animator.SetBool(Moving, Mathf.Abs(vel.x) > 0.1f);
+            Animator.SetBool(Jumping, !grounded);
+            Animator.SetFloat(VerticalVelocity, vel.y);
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Item"))
-            {
+        private void OnTriggerEnter2D(Collider2D other) {
+            if (other.CompareTag("Item")) {
                 var item = other.GetComponent<CollectibleItem>();
-                if (item != null)
-                {
+                if (item != null) {
                     item.GetItem();
                 }
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-            if (other.gameObject.CompareTag("Enemy"))
-            {
+        private void OnCollisionEnter2D(Collision2D other) {
+            if (other.gameObject.CompareTag("Enemy")) {
                 var enemy = other.gameObject.GetComponent<EnemyController>();
-                if (enemy != null)
-                {
+                if (enemy != null) {
                     var topHit = enemy.Hit(other.contacts);
 
-                    if (topHit)
-                    {
-                        rigidBody.AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
-                    }
-                    else
-                    {
+                    if (topHit) {
+                        RigidBody.AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
+                       // PlayJumpSound();
+                    } else {
                         Die();
                     }
                 }
             }
         }
 
-        private void OnCollisionStay2D(Collision2D other)
-        {
-            if (timeSinceJump > 0.2f && rigidBody.velocity.y <= 0 && !grounded && other.gameObject.CompareTag("Ground"))
-            {
-                foreach (var contact in other.contacts)
-                {
-                    if (Vector2.Dot(contact.normal, Vector2.up) > upThreshold)
-                    {
+        private void OnCollisionStay2D(Collision2D other) {
+            if (timeSinceJump > 0.2f && RigidBody.velocity.y <= 0 && !grounded &&
+                other.gameObject.CompareTag("Ground")) {
+                foreach (var contact in other.contacts) {
+                    if (Vector2.Dot(contact.normal, Vector2.up) > upThreshold) {
                         grounded = true;
                         canJump = true;
                         timeSinceJump = 0;
+                        PlayLandSound();
                         break;
                     }
                 }
             }
         }
 
-        private void OnCollisionExit2D(Collision2D other)
-        {
-            if (other.gameObject.CompareTag("Ground"))
-            {
+        private void OnCollisionExit2D(Collision2D other) {
+            if (other.gameObject.CompareTag("Ground")) {
                 grounded = false;
             }
         }
 
-        private void Die()
-        {
+        private void Die() {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        private void PlayJumpSound() {
+            AudioSource.clip = JumpSound;
+            AudioSource.volume = 0.3f;
+            AudioSource.Play();
+        }
+        
+        private void PlayLandSound() {
+            AudioSource.clip = LandSound;
+            AudioSource.volume = 0.1f;
+            AudioSource.Play();
         }
     }
 }

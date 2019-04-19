@@ -4,7 +4,6 @@
     {
         protected override void OnDie()
         {
-            throw new System.NotImplementedException();
         }
     }
 }
