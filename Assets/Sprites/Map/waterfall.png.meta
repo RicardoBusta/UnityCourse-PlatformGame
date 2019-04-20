@@ -1,23 +1,23 @@
 fileFormatVersion: 2
-guid: 2578cf1cbb72b44a69f07fad946e21bc
+guid: 5f4124222c4652e4da9c064ec595c605
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spritesheet-megaman-jogoveio_0
-    21300002: spritesheet-megaman-jogoveio_1
-    21300004: spritesheet-megaman-jogoveio_2
-    21300006: spritesheet-megaman-jogoveio_3
-    21300008: spritesheet-megaman-jogoveio_4
-    21300010: spritesheet-megaman-jogoveio_5
-    21300012: spritesheet-megaman-jogoveio_6
-    21300014: spritesheet-megaman-jogoveio_7
-    21300016: spritesheet-megaman-jogoveio_8
-    21300018: spritesheet-megaman-jogoveio_9
-    21300020: spritesheet-megaman-jogoveio_10
-    21300022: spritesheet-megaman-jogoveio_11
-    21300024: spritesheet-megaman-jogoveio_12
-    21300026: spritesheet-megaman-jogoveio_13
-    21300028: spritesheet-megaman-jogoveio_14
-    21300030: spritesheet-megaman-jogoveio_15
+    21300000: waterfall_0
+    21300002: waterfall_1
+    21300004: waterfall_2
+    21300006: waterfall_3
+    21300008: waterfall_4
+    21300010: waterfall_5
+    21300012: waterfall_6
+    21300014: waterfall_7
+    21300016: waterfall_8
+    21300018: waterfall_9
+    21300020: waterfall_10
+    21300022: waterfall_11
+    21300024: waterfall_12
+    21300026: waterfall_13
+    21300028: waterfall_14
+    21300030: waterfall_15
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -58,10 +58,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -118,17 +118,28 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spritesheet-megaman-jogoveio_0
+      name: waterfall_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
-        width: 64
-        height: 62
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,19 +147,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fb6dad1c476749b6b8cfb0f2e3eb861
+      spriteID: c64800c497fce3d4dbef139d80b8cfb2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-megaman-jogoveio_1
+      name: waterfall_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
-        width: 64
-        height: 62
+        x: 16
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,19 +167,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fe005ac3766142ddbd194f1eafa496a
+      spriteID: afbe6b45f0d8f4c4e85c0e6dd58a55c0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-megaman-jogoveio_2
+      name: waterfall_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
-        height: 62
+        x: 32
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,19 +187,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2ecd38ab81b443c8b449e76f5197c6f
+      spriteID: 154368b381ee725478f8e05716a1852a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-megaman-jogoveio_3
+      name: waterfall_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 192
-        width: 64
-        height: 62
+        x: 48
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,99 +207,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c424ad31bef246be9187cdcdfe1281b
+      spriteID: a3476b72eb8be7040b652783056a62c5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-megaman-jogoveio_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 130
-        width: 64
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b842d5e0f8cf4a009864a0ccf58f4f5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheet-megaman-jogoveio_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 130
-        width: 64
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 192ebb0081cbf43bab95afd2e4a9426c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheet-megaman-jogoveio_6
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 130
-        width: 64
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 03202839daa0c49bd8ef6e4726a45cff
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheet-megaman-jogoveio_7
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 130
-        width: 64
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8df2a041b7f74401b80651dfbeedef4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheet-megaman-jogoveio_8
+      name: waterfall_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 68
-        width: 64
-        height: 62
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,19 +227,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 303bddd67f71146bda97f6534e350f43
+      spriteID: a90e26789e160e44492b28c2489c7bf1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-megaman-jogoveio_9
+      name: waterfall_5
       rect:
         serializedVersion: 2
-        x: 64
-        y: 68
-        width: 64
-        height: 62
+        x: 16
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -316,19 +247,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b40b2bc7ba6624d83b2aa124f4692a3c
+      spriteID: be4b031830f068c4ba39f0071ba1c27a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-megaman-jogoveio_10
+      name: waterfall_6
       rect:
         serializedVersion: 2
-        x: 128
-        y: 68
-        width: 64
-        height: 62
+        x: 32
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,19 +267,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 297d3ed207b6545789105f03003660ba
+      spriteID: 7a56447359ba20249916d2514475f19c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-megaman-jogoveio_11
+      name: waterfall_7
       rect:
         serializedVersion: 2
-        x: 192
-        y: 68
-        width: 64
-        height: 62
+        x: 48
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -356,19 +287,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 496c082a86e0746c9a1e989b042895a5
+      spriteID: b70f66a43d2563945a5c33443c870b98
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-megaman-jogoveio_12
+      name: waterfall_8
       rect:
         serializedVersion: 2
         x: 0
-        y: 6
-        width: 64
-        height: 62
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,19 +307,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a6dcdb4bbedc4f21b8b483121aef5de
+      spriteID: 8446d9c035923ed48be9cc83c9d81987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-megaman-jogoveio_13
+      name: waterfall_9
       rect:
         serializedVersion: 2
-        x: 64
-        y: 6
-        width: 64
-        height: 62
+        x: 16
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -396,19 +327,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83802dd2edd1740e5af09fd27006b6e6
+      spriteID: c60219f904e101149b53c544f421cfa3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-megaman-jogoveio_14
+      name: waterfall_10
       rect:
         serializedVersion: 2
-        x: 128
-        y: 6
-        width: 64
-        height: 62
+        x: 32
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -416,19 +347,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e38eb4a821d164c0684e250d3b31ccb5
+      spriteID: 3de341cfd8d345a4abbc2fe957489349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet-megaman-jogoveio_15
+      name: waterfall_11
       rect:
         serializedVersion: 2
-        x: 192
-        y: 6
-        width: 64
-        height: 62
+        x: 48
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -436,7 +367,87 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fda3c5d0425a146769afa5233cce6869
+      spriteID: 1ac8679ac2fda5d48a21325b45b790a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68c8fe60d12a61349bff0ab3b9f598e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall_13
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17b25c9fc315e2d499d1b4270e872a9f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b199c754a263234082742423ca1bbd1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall_15
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e36057a5b29c3544ebdf0e5af580ba1c
       vertices: []
       indices: 
       edges: []
@@ -444,7 +455,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 424157cdb44154a59a71b154557ab68b
+    spriteID: 4836fe944f952704a93a8990b9a6dc67
     vertices: []
     indices: 
     edges: []
