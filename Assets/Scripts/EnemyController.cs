@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using NaughtyAttributes;
 
 namespace Game {
@@ -36,7 +37,7 @@ namespace Game {
             gameObject.SetActive(false);
         }
 
-        public bool Hit(ContactPoint2D[] contactPoints) {
+        public bool Hit(IEnumerable<ContactPoint2D> contactPoints) {
             var topHit = true;
             foreach (var contact in contactPoints) {
                 if (Vector2.Dot(contact.normal, Vector2.up) < 0.7f) {

@@ -9,7 +9,7 @@
 
     public class AnimatedTile : Tile {
         public float Speed = 1;
-        public float StartTimeea;
+        public float StartTime;
         public Sprite[] Sprites;
 
         public override bool GetTileAnimationData(Vector3Int position, ITilemap tilemap, ref TileAnimationData tileAnimationData) {

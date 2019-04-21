@@ -38,7 +38,7 @@ namespace Game {
         [BoxGroup("Assets")]
         [Required]
         public AudioClip JumpSound;
-        
+
         [BoxGroup("Assets")]
         [Required]
         public AudioClip LandSound;
@@ -118,7 +118,6 @@ namespace Game {
 
                     if (topHit) {
                         RigidBody.AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
-                       // PlayJumpSound();
                     } else {
                         Die();
                     }
@@ -134,7 +133,6 @@ namespace Game {
                         grounded = true;
                         canJump = true;
                         timeSinceJump = 0;
-                        PlayLandSound();
                         break;
                     }
                 }
@@ -154,12 +152,6 @@ namespace Game {
         private void PlayJumpSound() {
             AudioSource.clip = JumpSound;
             AudioSource.volume = 0.3f;
-            AudioSource.Play();
-        }
-        
-        private void PlayLandSound() {
-            AudioSource.clip = LandSound;
-            AudioSource.volume = 0.1f;
             AudioSource.Play();
         }
     }

@@ -13,9 +13,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15572149, y: 0.42682666}
+  m_Offset: {x: -0.15572149, y: 0.18966812}
   serializedVersion: 2
-  m_Radius: 0.45273954
+  m_Radius: 0.215581
 --- !u!114 &5974985494610368311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +101,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300002, guid: f2e86be7d0da17d4c9297665f36aed59,
         type: 3}
+    - target: {fileID: 7900930003180096375, guid: a37536522d435427082c3a9fdff24713,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e6d7c644021e24862ade136a1e4eacd5, type: 2}
     - target: {fileID: 2414966194242242948, guid: a37536522d435427082c3a9fdff24713,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
