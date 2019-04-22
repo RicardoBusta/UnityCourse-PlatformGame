@@ -46032,7 +46032,7 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
+  m_ForceIntoRT: 1
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -46044,7 +46044,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543077709}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.44, y: 1.67, z: -10}
+  m_LocalPosition: {x: 0, y: 1.67, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1385287112}
@@ -49097,7 +49097,7 @@ PrefabInstance:
     - target: {fileID: 5427364851089066026, guid: 8f20d7025d276493e9f41ea24dc73770,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.44
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5427364851089066026, guid: 8f20d7025d276493e9f41ea24dc73770,
         type: 3}
