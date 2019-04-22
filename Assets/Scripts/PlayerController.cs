@@ -19,6 +19,8 @@ namespace Game {
 
         private static readonly float upThreshold = 0.5f;
 
+        public VirtualGamePad GamePad;
+
         [BoxGroup("ScriptReferences")]
         [Required]
         public Rigidbody2D RigidBody;
@@ -58,8 +60,7 @@ namespace Game {
         private float timeSinceJump = 0;
 
         void Update() {
-            playerInput.x = Input.GetAxisRaw("Horizontal");
-            playerInput.y = Input.GetAxisRaw("Vertical");
+            playerInput = GamePad.Axis;
         }
 
         // Update is called once per frame

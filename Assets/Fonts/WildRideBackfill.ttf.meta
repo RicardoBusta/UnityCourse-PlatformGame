@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bd7b89d8a7b984f5ab95d2d92d290a3a
+guid: 4bbe78ea59341cf4e852eb3e9710cd70
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: VCR OSD Mono
+  fontName: Wild Ride Back Fill
   fontNames:
-  - VCR OSD Mono
+  - Wild Ride Back Fill
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

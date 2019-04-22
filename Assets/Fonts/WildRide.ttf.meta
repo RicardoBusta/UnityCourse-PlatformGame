@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 237d8790c8f3147e78b5af33897c3505
+guid: 777cd89dcae52af47aa2b0cfeeaf7e08
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Funny & Cute
+  fontName: Wild Ride
   fontNames:
-  - Funny & Cute
+  - Wild Ride
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

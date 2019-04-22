@@ -12,6 +12,8 @@ namespace Game {
         public TextMeshProUGUI GemText;
         public TextMeshProUGUI GemTextShadow;
 
+        public GameObject PauseMenu;
+        
         private static GameController instance;
 
         private static Dictionary<CollectibleItem.CollectibleTypes, int> totalItemCount;
@@ -93,11 +95,8 @@ namespace Game {
             if (esc || (enter && !paused)) {
                 paused = !paused;
 
-                if (paused) {
-                    Time.timeScale = 1;
-                } else {
-                    Time.timeScale = 0;
-                }
+                PauseMenu.SetActive(!paused);
+                Time.timeScale = paused ? 1 : 0;
             }
         }
     }
