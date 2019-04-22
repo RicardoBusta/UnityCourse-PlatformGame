@@ -11,6 +11,8 @@ namespace Game {
 // [ ] Botão para reiniciar o jogo
 // [ ] Menu inicial para o jogo
 // [ ] Menu de pausa
+// [ ] Tela de vitoria
+// [ ] Tela de derrota
 
     public class PlayerController : MonoBehaviour {
         private static readonly int Moving = Animator.StringToHash("Moving");
