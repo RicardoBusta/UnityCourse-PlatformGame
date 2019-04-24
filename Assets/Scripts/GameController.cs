@@ -5,6 +5,8 @@ namespace Game
     using System;
     using System.Collections.Generic;
     using UnityEngine;
+    using UnityEngine.SceneManagement;
+    using UnityEngine.UI;
 
     public class GameController : MonoBehaviour
     {
@@ -26,6 +28,10 @@ namespace Game
 
         private bool paused;
 
+        public Slider LifeBar;
+
+        public TextMeshProUGUI EndMessage;
+        
         public static GameController Instance
         {
             get
@@ -37,6 +43,17 @@ namespace Game
 
                 return instance;
             }
+        }
+
+        public void SetLife(int life)
+        {
+            LifeBar.value = life;
+        }
+
+        public void SetMaxLife(int life)
+        {
+            LifeBar.maxValue = life;
+            LifeBar.value = life;
         }
 
         public void GetItem(CollectibleItem.CollectibleTypes itemType)
@@ -60,7 +77,26 @@ namespace Game
                 totalItemCount[CollectibleItem.CollectibleTypes.Cherry])
             {
                 Debug.Log("WIN!");
+                Win();
             }
+        }
+
+        public void RestartGame()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        public void Win()
+        {
+            EndMessage.text = "Win";
+            PauseMenu.SetActive(true);
+        }
+
+        public void Lose()
+        {
+            Debug.Log("Lose");
+            EndMessage.text = "Lose";
+            PauseMenu.SetActive(true);
         }
 
         public void Start()
