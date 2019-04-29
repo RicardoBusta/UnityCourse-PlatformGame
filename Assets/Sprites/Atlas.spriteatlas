@@ -42,10 +42,11 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: f0bb8c76fb1af9b499a74f14b1f8e3e9, type: 3}
-    totalSpriteSurfaceArea: 301458
+    totalSpriteSurfaceArea: 424875
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: a585d6609cccc4b12a46edf397cae4e5, type: 3}
   - {fileID: 21300000, guid: c0e91e807d3074c3e8b1e526a9b7b336, type: 3}
   - {fileID: 21300008, guid: 954535c0b0cffed4ca1c0531aa24e008, type: 3}
   - {fileID: 21300010, guid: 954535c0b0cffed4ca1c0531aa24e008, type: 3}
@@ -77,6 +78,9 @@ SpriteAtlas:
   - {fileID: 21300006, guid: 21eb0912751cea349ba848f3db5e2452, type: 3}
   - {fileID: 21300000, guid: 21eb0912751cea349ba848f3db5e2452, type: 3}
   - {fileID: 21300002, guid: 21eb0912751cea349ba848f3db5e2452, type: 3}
+  - {fileID: 21300002, guid: 95af4912f81dd4ce1b095494a2cd1973, type: 3}
+  - {fileID: 21300000, guid: 95af4912f81dd4ce1b095494a2cd1973, type: 3}
+  - {fileID: 21300004, guid: 95af4912f81dd4ce1b095494a2cd1973, type: 3}
   - {fileID: 21300004, guid: 5f4124222c4652e4da9c064ec595c605, type: 3}
   - {fileID: 21300006, guid: 5f4124222c4652e4da9c064ec595c605, type: 3}
   - {fileID: 21300000, guid: 5f4124222c4652e4da9c064ec595c605, type: 3}
@@ -270,6 +274,7 @@ SpriteAtlas:
   - {fileID: 21300004, guid: d98eee4dfabf43e48b9c3f322dcee807, type: 3}
   - {fileID: 21300008, guid: d98eee4dfabf43e48b9c3f322dcee807, type: 3}
   m_PackedSpriteNamesToIndex:
+  - image4534
   - heart
   - Death_4
   - Death_5
@@ -301,6 +306,9 @@ SpriteAtlas:
   - ItemFeedback_3
   - ItemFeedback_0
   - ItemFeedback_1
+  - banana_1
+  - banana_0
+  - banana_2
   - waterfall_2
   - waterfall_3
   - waterfall_0

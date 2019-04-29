@@ -5,7 +5,7 @@ namespace _Curso.Items
     using UnityEngine;
     using UnityEngine.UI;
 
-    [RequireComponent(typeof(Image))]
+    [RequireComponent(typeof(SpriteRenderer))]
     public class Sticker : MonoBehaviour
     {
         public Stack<StickerData> collectedStickers = new Stack<StickerData>();
@@ -16,11 +16,19 @@ namespace _Curso.Items
 
         private void OnEnable()
         {
+            Setup();
+        }
+
+        private void Setup()
+        {
             icon.sprite = data.sprite;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            var controller = GameController.Instance;
+            var stickerUi = Instantiate(controller.StickerUiPrefab, controller.StickerLayout.transform);
+            stickerUi.Setup(data);
             collectedStickers.Push(data);
             gameObject.SetActive(false);
         }
