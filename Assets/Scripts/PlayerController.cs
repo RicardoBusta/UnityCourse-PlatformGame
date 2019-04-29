@@ -2,17 +2,17 @@
 
 namespace Game
 {
+    using System;
     using UnityEngine;
 
-// [ ] Menu inicial para o jogo
+//        Awake()
+//        Start()
+//        Update()
+//        FixedUpdate()
+//        OnEnable()
+//        OnDisable()
+//    delegate ou UnityAction
 
-// Criar um ou mais streaming assets para o projeto
-// Usar streaming assets pos build tornando o projeto customizável
-
-// Criar um level 2 para o projeto
-// Criar um asset bundle com os assets presentes no level 2
-// Carregar o asset bundle entre o level 1 e o level 2
-// Usar assets carregadors no level 2
 
     public class PlayerController : MonoBehaviour
     {
@@ -25,7 +25,7 @@ namespace Game
         public VirtualGamePad GamePad;
 
         public int Life;
-        private int CurrentLife;
+        private int currentLife;
 
         public GameController Controller;
 
@@ -56,15 +56,25 @@ namespace Game
         private bool canJump;
         private float timeSinceJump = 0;
 
-        private void Start()
+        private void Awake()
         {
-            CurrentLife = Life;
-            Controller.SetMaxLife(Life);
+            void NullCheck(object script, string scriptName)
+            {
+                if (script == null)
+                    throw new ArgumentNullException($"{nameof(script)} {scriptName}");
+            }
+
+            NullCheck(Animator, "Animator");
+            NullCheck(AudioSource, "AudioSource");
+            NullCheck(SpriteRenderer, "SpriteRenderer");
+            NullCheck(RigidBody, "RigidBody");
         }
 
-        private void Update()
+        private void Start()
         {
-            playerInput = GamePad.Axis;
+            currentLife = Life;
+            Controller.SetMaxLife(Life);
+            GamePad.UpdateControl += input => { playerInput = input; };
         }
 
         // Update is called once per frame
@@ -173,14 +183,14 @@ namespace Game
 
         private void Die()
         {
-            CurrentLife--;
-            if (CurrentLife == 0)
+            currentLife--;
+            if (currentLife == 0)
             {
                 Controller.Lose();
                 Time.timeScale = 0;
             }
 
-            Controller.SetLife(CurrentLife);
+            Controller.SetLife(currentLife);
             RigidBody.AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
         }
 

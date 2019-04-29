@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using NaughtyAttributes;
-
-namespace Game {
-    using DG.Tweening;
+﻿namespace Game {
     using UnityEngine;
-
+    using System;
+    using System.Collections.Generic;
+    using NaughtyAttributes;
+    
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(Collider2D))]
     [RequireComponent(typeof(AudioSource))]
     public class EnemyController : MonoBehaviour {
@@ -30,7 +28,7 @@ namespace Game {
         [BoxGroup("Assets")]
         [Required]
         public AudioClip DeathSound;
-
+        
         public event Action DieEvent;
 
         public void Die() {

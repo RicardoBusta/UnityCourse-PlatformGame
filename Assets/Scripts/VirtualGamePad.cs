@@ -2,14 +2,18 @@ using UnityEngine;
 
 namespace Game
 {
+    using System;
+
     public class VirtualGamePad : MonoBehaviour
     {
-        public Vector2 Axis;
+        private Vector2 previousAxis = Vector2.zero;
 
-        private int up;
-        private int down;
-        private int right;
-        private int left;
+        private float up;
+        private float down;
+        private float right;
+        private float left;
+
+        public event Action<Vector2> UpdateControl;
 
         public void PressUp(bool press)
         {
@@ -33,8 +37,17 @@ namespace Game
 
         public void Update()
         {
-            Axis.x = Mathf.Clamp(Input.GetAxisRaw("Horizontal") + (left + right), -1, 1);
-            Axis.y = Mathf.Clamp(Input.GetAxisRaw("Vertical") + (up + down), -1, 1);
+            var Axis = new Vector2(
+                Mathf.Clamp(Input.GetAxisRaw("Horizontal") + (left + right), -1, 1),
+                Mathf.Clamp(Input.GetAxisRaw("Vertical") + (up + down), -1, 1)
+            );
+
+            if (Axis != previousAxis)
+            {
+                UpdateControl?.Invoke(Axis);
+            }
+
+            previousAxis = Axis;
         }
     }
 }
