@@ -1,50 +1,53 @@
-﻿namespace Game {
+﻿namespace Game
+{
     using UnityEngine;
     using System;
     using System.Collections.Generic;
     using NaughtyAttributes;
-    
+
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(Collider2D))]
     [RequireComponent(typeof(AudioSource))]
-    public class EnemyController : MonoBehaviour {
+    public class EnemyController : MonoBehaviour
+    {
         private static readonly int Die1 = Animator.StringToHash("Die");
 
-        [BoxGroup("ScriptReferences")]
-        [Required]
+        [BoxGroup("ScriptReferences")] [Required]
         public Rigidbody2D RigidBody;
 
-        [BoxGroup("ScriptReferences")]
-        [Required]
+        [BoxGroup("ScriptReferences")] [Required]
         public Animator Animator;
 
-        [BoxGroup("ScriptReferences")]
-        [Required]
+        [BoxGroup("ScriptReferences")] [Required]
         public Collider2D Collider;
 
-        [BoxGroup("ScriptReferences")]
-        [Required]
+        [BoxGroup("ScriptReferences")] [Required]
         public AudioSource AudioSource;
 
-        [BoxGroup("Assets")]
-        [Required]
-        public AudioClip DeathSound;
-        
+        [BoxGroup("Assets")] [Required] public AudioClip DeathSound;
+
+        private static int enemyCount = 0;
+
         public event Action DieEvent;
 
-        public void Die() {
+        public void Die()
+        {
             gameObject.SetActive(false);
         }
 
-        public bool Hit(IEnumerable<ContactPoint2D> contactPoints) {
+        public bool Hit(IEnumerable<ContactPoint2D> contactPoints)
+        {
             var topHit = true;
-            foreach (var contact in contactPoints) {
-                if (Vector2.Dot(contact.normal, Vector2.up) < 0.7f) {
+            foreach (var contact in contactPoints)
+            {
+                if (Vector2.Dot(contact.normal, Vector2.up) < 0.7f)
+                {
                     topHit = false;
                     break;
                 }
             }
 
-            if (topHit) {
+            if (topHit)
+            {
                 Collider.enabled = false;
                 DieEvent?.Invoke();
                 PlayDeathSound();
@@ -54,16 +57,35 @@
             return topHit;
         }
 
-        public void PlaySound(AudioClip clip, float volume) {
+        public void PlaySound(AudioClip clip, float volume)
+        {
             AudioSource.clip = clip;
             AudioSource.volume = volume;
             AudioSource.Play();
         }
 
-        private void PlayDeathSound() {
+        private void PlayDeathSound()
+        {
             AudioSource.clip = DeathSound;
             AudioSource.volume = 0.7f;
             AudioSource.Play();
+        }
+
+        private void OnEnable()
+        {
+            enemyCount++;
+            PrintEnemyCount();
+        }
+
+        private void OnDisable()
+        {
+            enemyCount--;
+            PrintEnemyCount();
+        }
+
+        private static void PrintEnemyCount()
+        {
+            Debug.Log($"Enemy Count: {enemyCount}");
         }
     }
 }

@@ -42,7 +42,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: f0bb8c76fb1af9b499a74f14b1f8e3e9, type: 3}
-    totalSpriteSurfaceArea: 301278
+    totalSpriteSurfaceArea: 301458
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -103,6 +103,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ae078a043bd341e4484d4fd996d492a5, type: 3}
   - {fileID: 21300006, guid: ae078a043bd341e4484d4fd996d492a5, type: 3}
   - {fileID: 21300004, guid: ae078a043bd341e4484d4fd996d492a5, type: 3}
+  - {fileID: 21300000, guid: 75e29f35d619742aeaf878145aad1700, type: 3}
   - {fileID: 21300000, guid: b835ab0637afa43cab556b6302a36b27, type: 3}
   - {fileID: 21300000, guid: de41d366c687a46beb6a9acaa88c12db, type: 3}
   - {fileID: 21300000, guid: f2e86be7d0da17d4c9297665f36aed59, type: 3}
@@ -326,6 +327,7 @@ SpriteAtlas:
   - Cherry_0
   - Cherry_3
   - Cherry_2
+  - defaultHat
   - ColorPalette
   - middle
   - Opossum_0

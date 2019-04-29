@@ -5,13 +5,13 @@ namespace Game
     using System;
     using UnityEngine;
 
-//        Awake()
-//        Start()
-//        Update()
-//        FixedUpdate()
-//        OnEnable()
-//        OnDisable()
-//    delegate ou UnityAction
+//        Awake() ok
+//        Start() ok
+//        Update() ok (gamepadcontroller)
+//        FixedUpdate() ok
+//        OnEnable() ok (enemy)
+//        OnDisable() ok (enemy)
+//    delegate ou UnityAction ok (enemy)
 
 
     public class PlayerController : MonoBehaviour
@@ -77,7 +77,6 @@ namespace Game
             GamePad.UpdateControl += input => { playerInput = input; };
         }
 
-        // Update is called once per frame
         private void FixedUpdate()
         {
             MovementLogic();

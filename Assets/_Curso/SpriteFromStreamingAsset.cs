@@ -36,9 +36,9 @@ public class SpriteFromStreamingAsset : MonoBehaviour
         {
             var tex = DownloadHandlerTexture.GetContent(texRequest);
             Debug.Log(tex);
-            var sprite = Sprite.Create(tex, new Rect(0, 0, 20, 9), new Vector2(0.5f, 0.5f), 16, 0,
+            var sprite = Sprite.Create(tex, new Rect(0, 0, 20, 9), new Vector2(0.5f, 0f), 16, 0,
                 SpriteMeshType.FullRect, Vector4.one);
-                
+            //sprite.
             spriteRenderer.sprite = sprite;
         }
     }

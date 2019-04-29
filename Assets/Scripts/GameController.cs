@@ -7,6 +7,7 @@ namespace Game
     using UnityEngine;
     using UnityEngine.SceneManagement;
     using UnityEngine.UI;
+    using _Curso.Items;
 
     public class GameController : MonoBehaviour
     {
@@ -31,6 +32,9 @@ namespace Game
         public Slider LifeBar;
 
         public TextMeshProUGUI EndMessage;
+
+        public HorizontalLayoutGroup StickerLayout;
+        public StickerUI StickerUiPrefab;
         
         public static GameController Instance
         {
